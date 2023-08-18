@@ -13,21 +13,16 @@ class Solution{
     public:
     vector<int> leaders(int a[], int n){
         // Code here
-        vector<int> leads;
-        int lead=a[n-1];
-        leads.push_back(a[n-1]);
-        
-        for(int i=n-2; i>=0; i--)
-        {
-            if(a[i]>=lead)
-            {
-                lead=a[i];
-                leads.push_back(a[i]);
+        vector<int>s;
+        int t=INT_MIN;
+        for(int i=n-1;i>=0;i--){
+            if(a[i]>=t){
+                s.push_back(a[i]);
+                t=a[i];
             }
         }
-        reverse(leads.begin(), leads.end());
-        return leads;
-        
+        reverse(s.begin(),s.end());
+        return s;
     }
 };
 
